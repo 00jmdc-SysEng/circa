@@ -1,3 +1,9 @@
 {
-  "rootDirectory": "circa-web"
+  "rootDirectory": "circa-web",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/circa-web/$1"
+    }
+  ]
 }
