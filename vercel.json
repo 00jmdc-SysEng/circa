@@ -1,9 +1,9 @@
 {
-  "rootDirectory": "circa-web",
-  "rewrites": [
+  "version": 3,
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/circa-web/$1"
+      "src": "/(.*)",
+      "dest": "/circa-web/$1"
     }
   ]
 }
