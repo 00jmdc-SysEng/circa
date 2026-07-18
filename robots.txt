@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /assets/images/
+Disallow: /Certificate of Registration.pdf
+Disallow: /.git/
+
+# Sitemaps
+Sitemap: https://www.circa2300construction.com.au/sitemap.xml
+
+# Crawl delay (optional - helps manage server load)
+Crawl-delay: 1
