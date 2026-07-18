@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const response = await fetch(
-          "https://formsubmit.co/ajax/circa2300.cs@gmail.com",
+          "https://formsubmit.co/ajax/admin@circa2300construction.com.au",
           {
             method: "POST",
             body: formData,
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (error) {
         console.error("Form submit error:", error);
         showToast(
-          "Unable to send inquiry right now. Please email circa2300.cs@gmail.com",
+          "Unable to send inquiry right now. Please email admin@circa2300construction.com.au",
           "ph-warning-circle",
         );
       } finally {
