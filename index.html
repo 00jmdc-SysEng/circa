@@ -158,7 +158,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link rel="icon" type="image/png" href="assets/images/logo.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/hero.jpg"
+      fetchpriority="high"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="styles.min.css"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript><link rel="stylesheet" href="styles.min.css" /></noscript>
 
     <!-- Async Font Loading using Font Loading API -->
     <script>
@@ -410,6 +424,7 @@
                 alt="Construction supervisor overlooking a modern building site at golden hour"
                 loading="eager"
                 decoding="async"
+                fetchpriority="high"
               />
               <div class="hero-image-glow"></div>
             </div>
