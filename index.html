@@ -65,32 +65,132 @@
       CIRCA2300 PTY LTD | Construction Supervision &amp; Project Oversight
     </title>
 
-    <!-- Google Fonts - Optimized with font-display swap -->
+    <!-- Inline Critical CSS for above-the-fold content -->
+    <style>
+      :root {
+        --bg-primary: #06101a;
+        --bg-secondary: #0c1c2e;
+        --text-primary: #f0f4f8;
+        --text-secondary: #94a8bf;
+        --accent: #d4a853;
+        --font-heading: "Outfit", sans-serif;
+        --font-body: "Plus Jakarta Sans", sans-serif;
+        --transition-fast: 180ms ease;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      body {
+        font-family: var(--font-body);
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        line-height: 1.7;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(6, 16, 26, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1rem 0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      h1,
+      h2 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--text-primary);
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 120px 0 80px;
+        position: relative;
+        background: linear-gradient(135deg, #06101a, #0c1c2e);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg-primary);
+      }
+      .section {
+        padding: 80px 0;
+      }
+    </style>
+
+    <!-- Preconnect to font services -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-
-    <!-- Phosphor Icons - Deferred loading -->
-    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 
     <link rel="icon" type="image/png" href="assets/images/logo.png" />
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" as="image" href="assets/images/hero.jpg" fetchpriority="high" />
-    <link rel="preload" as="style" href="styles.css" />
-    
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Async Font Loading using Font Loading API -->
+    <script>
+      // Prevent font blocking - load asynchronously
+      if ('fonts' in document) {
+        Promise.all([
+          document.fonts.load('300 1em Outfit'),
+          document.fonts.load('400 1em Outfit'),
+          document.fonts.load('500 1em Outfit'),
+          document.fonts.load('600 1em Outfit'),
+          document.fonts.load('700 1em Outfit'),
+          document.fonts.load('800 1em Outfit'),
+          document.fonts.load('400 1em Plus Jakarta Sans'),
+          document.fonts.load('500 1em Plus Jakarta Sans'),
+          document.fonts.load('600 1em Plus Jakarta Sans'),
+          document.fonts.load('700 1em Plus Jakarta Sans'),
+        ]).then(() => {
+          document.documentElement.classList.add('fonts-loaded');
+        }).catch(() => {
+          // Fallback
+          const l = document.createElement('link');
+          l.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=block';
+          l.rel = 'stylesheet';
+          document.head.appendChild(l);
+        });
+      } else {
+        const l = document.createElement('link');
+        l.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=block';
+        l.rel = 'stylesheet';
+        document.head.appendChild(l);
+      }
+    </script>
 
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
@@ -835,6 +935,17 @@
 
     <!-- Toast container -->
     <div class="toast-container" id="toast-container"></div>
+
+    <!-- Deferred non-critical scripts -->
+    <script>
+      // Load Phosphor icons after page load
+      window.addEventListener("load", function () {
+        const iconScript = document.createElement("script");
+        iconScript.src = "https://unpkg.com/@phosphor-icons/web@2.1.1";
+        iconScript.defer = true;
+        document.body.appendChild(iconScript);
+      });
+    </script>
 
     <script src="script.js" defer></script>
   </body>
