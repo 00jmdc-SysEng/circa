@@ -163,31 +163,35 @@
     <!-- Async Font Loading using Font Loading API -->
     <script>
       // Prevent font blocking - load asynchronously
-      if ('fonts' in document) {
+      if ("fonts" in document) {
         Promise.all([
-          document.fonts.load('300 1em Outfit'),
-          document.fonts.load('400 1em Outfit'),
-          document.fonts.load('500 1em Outfit'),
-          document.fonts.load('600 1em Outfit'),
-          document.fonts.load('700 1em Outfit'),
-          document.fonts.load('800 1em Outfit'),
-          document.fonts.load('400 1em Plus Jakarta Sans'),
-          document.fonts.load('500 1em Plus Jakarta Sans'),
-          document.fonts.load('600 1em Plus Jakarta Sans'),
-          document.fonts.load('700 1em Plus Jakarta Sans'),
-        ]).then(() => {
-          document.documentElement.classList.add('fonts-loaded');
-        }).catch(() => {
-          // Fallback
-          const l = document.createElement('link');
-          l.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=block';
-          l.rel = 'stylesheet';
-          document.head.appendChild(l);
-        });
+          document.fonts.load("300 1em Outfit"),
+          document.fonts.load("400 1em Outfit"),
+          document.fonts.load("500 1em Outfit"),
+          document.fonts.load("600 1em Outfit"),
+          document.fonts.load("700 1em Outfit"),
+          document.fonts.load("800 1em Outfit"),
+          document.fonts.load("400 1em Plus Jakarta Sans"),
+          document.fonts.load("500 1em Plus Jakarta Sans"),
+          document.fonts.load("600 1em Plus Jakarta Sans"),
+          document.fonts.load("700 1em Plus Jakarta Sans"),
+        ])
+          .then(() => {
+            document.documentElement.classList.add("fonts-loaded");
+          })
+          .catch(() => {
+            // Fallback
+            const l = document.createElement("link");
+            l.href =
+              "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=block";
+            l.rel = "stylesheet";
+            document.head.appendChild(l);
+          });
       } else {
-        const l = document.createElement('link');
-        l.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=block';
-        l.rel = 'stylesheet';
+        const l = document.createElement("link");
+        l.href =
+          "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=block";
+        l.rel = "stylesheet";
         document.head.appendChild(l);
       }
     </script>
@@ -742,7 +746,7 @@
                 <i class="ph ph-calendar-check"></i>
               </div>
               <span class="credential-label">Date of Inception</span>
-              <strong>2000</strong>
+              <strong>2010</strong>
             </div>
             <div class="credential-card reveal reveal-delay-1">
               <div class="credential-icon">
